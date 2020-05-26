@@ -4,7 +4,7 @@ import android.view.View
 import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation
 
-class ExpandCollapseHeightInterpolator(view: View, private val expandedHeight: Int, var onEnd: () -> Unit = {}) : FloatPropertyCompat<View>("ExpandCollapseHeightInterpolator") {
+class ExpandCollapseHeightInterpolator(view: View, private val expandedHeight: Int = 0, var onEnd: () -> Unit = {}) : FloatPropertyCompat<View>("ExpandCollapseHeightInterpolator") {
 
     private val spring = SpringAnimation(view, this, 0.toFloat()).apply {
         addEndListener { _, _, _, _ ->
@@ -33,4 +33,3 @@ class ExpandCollapseHeightInterpolator(view: View, private val expandedHeight: I
         invalidate()
     }
 }
-
